@@ -12,26 +12,6 @@ struct PlayerSettings
 	int S;
 };
 
-// プレイヤーの初期設定
-PlayerSettings hero = {
-    108,    // HP
-    130,    // A
-    95,     // B
-    80,     // C
-    85,     // D
-	102     // S
-};
-
-PlayerSettings magician
-{
-    75,     // HP
-    65,     // A
-    72,     // B
-    159,    // C
-    125,    // D
-    129     // S
-};
-
 /// <summary>
 /// プレイヤークラス
 /// </summary>
@@ -103,7 +83,27 @@ void Show(const Player& player, std::string name)
 		      << "D : " << player.Settings.D << std::endl
 		      << "S : " << player.Settings.S << std::endl
               << std::endl;
-}   
+}
+
+// プレイヤーの初期設定
+PlayerSettings hero = {
+    108,    // HP
+    130,    // A
+    95,     // B
+    80,     // C
+    85,     // D
+    102     // S
+};
+
+PlayerSettings magician
+{
+    75,     // HP
+    65,     // A
+    72,     // B
+    159,    // C
+    125,    // D
+    129     // S
+};
 
 int main()
 {
