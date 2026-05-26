@@ -1,6 +1,24 @@
 ﻿#include <iostream>
 #include <string>  
 
+struct PlayerSettings
+{
+    int HP;
+    int A;
+    int B;
+	int C;
+	int D;
+	int S;
+};
+
+PlayerSettings hero = {
+    108,    // HP
+    130,    // A
+    95,     // B
+    80,     // C
+    85,     // D
+	102     // S
+};
 class Player
 {
 public:
@@ -12,6 +30,12 @@ public:
     int C;
     int D;
     int S;
+
+	// 構造体を引数に取るコンストラクタ 
+    Player(std::string name,  const PlayerSettings& settings)
+		: Player(name, settings.HP, settings.A, settings.B, settings.C, settings.D, settings.S)
+    {
+	}
 
     // デフォルトコンストラクタ
     Player()
@@ -50,9 +74,9 @@ int main()
     std::shared_ptr<Player> p(std::make_shared<Player>());
     std::shared_ptr<Player> p2 = p;     // コピーコンストラクタ
 
-    Player player1;
-    Player player2("勇者", 75, 65, 72, 159, 125, 139);
-    Player player3 = player2;
+    Player player1("勇者", 75, 65, 72, 159, 125, 139);
+    Player player2 = player1;
+    Player player3("勇者", hero);
 
     Show(player1);
     Show(player2);
