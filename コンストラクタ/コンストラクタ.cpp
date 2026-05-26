@@ -4,13 +4,13 @@
 // プレイヤーの初期設定をまとめた構造体
 struct PlayerSettings
 {
-    char NAME[256];
-    int HP;
-    int A;
-    int B;
-	int C;
-	int D;
-	int S;
+    char NAME[256] = "NONAME";
+    int HP = 100;
+    int A = 100;
+    int B = 100;
+	int C = 100;
+	int D = 100;
+	int S = 100;
 };
 
 /// <summary>
@@ -30,12 +30,12 @@ public:
     int D;              // プレイヤーの魔法防御力
     int S;              // プレイヤーの素早さ        
 
+*/
     // デフォルトコンストラクタ
     Player()
-        : Player("ＮＯＮＡＭＥ", PlayerSettings())
+        : Player(PlayerSettings())
     {
     }
-*/
 
     Player(const Player& other)
         : Player(other.Settings)
@@ -130,8 +130,10 @@ int main()
     Player player1(hero);       // 勇者
     Player player2 = player1;   // 勇者のコピー
 	Player player3(magician);   // 魔法使い
+    Player player4;
 
     Show(player1, "player1");
     Show(player2, "player2");
     Show(player3, "player3");
+	Show(player4, "player4");
 }
