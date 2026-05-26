@@ -46,6 +46,10 @@ void Show(const Player& player)
 
 int main()
 {
+    // スマートポインタを使用して、下と同じ処理
+    std::shared_ptr<Player> p(std::make_shared<Player>());
+    std::shared_ptr<Player> p2 = p;     // コピーコンストラクタ
+
     Player player1;
     Player player2("勇者", 75, 65, 72, 159, 125, 139);
     Player player3 = player2;
