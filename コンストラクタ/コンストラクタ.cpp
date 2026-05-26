@@ -66,9 +66,10 @@ public:
 /// プレイヤー数値表示関数
 /// </summary>
 /// <param name="player">表示するプレイヤーのインスタンス</param>
-void Show(const Player& player)
+void Show(const Player& player, std::string name)
 {
-    std::cout << "NAME : " << player.NAME << std::endl
+    std::cout << name << std::endl
+              << "NAME : " << player.NAME << std::endl
               << "H : " << player.HP << std::endl
 		      << "A : " << player.A << std::endl
 		      << "B : " << player.B << std::endl
@@ -88,7 +89,9 @@ int main()
     Player player2 = player1;
     Player player3("勇者2", hero);
 
-    Show(player1);
-    Show(player2);
-    Show(player3);
+    Show(player1, "player1");
+    Show(player2, "player2");
+    Show(player3, "player3");
+	Show(*p, "p");
+	Show(*p2, "p2");
 }
