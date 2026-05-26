@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>  
 
+// プレイヤーの初期設定をまとめた構造体
 struct PlayerSettings
 {
     int HP;
@@ -11,6 +12,7 @@ struct PlayerSettings
 	int S;
 };
 
+// プレイヤーの初期設定
 PlayerSettings hero = {
     108,    // HP
     130,    // A
@@ -19,6 +21,10 @@ PlayerSettings hero = {
     85,     // D
 	102     // S
 };
+
+/// <summary>
+/// プレイヤークラス
+/// </summary>
 class Player
 {
 public:
@@ -56,16 +62,20 @@ public:
 	}   
 };
 
+/// <summary>
+/// プレイヤー数値表示関数
+/// </summary>
+/// <param name="player">表示するプレイヤーのインスタンス</param>
 void Show(const Player& player)
 {
     std::cout << "NAME : " << player.NAME << std::endl
-        << "H : " << player.HP << std::endl
-		<< "A : " << player.A << std::endl
-		<< "B : " << player.B << std::endl
-		<< "C : " << player.C << std::endl
-		<< "D : " << player.D << std::endl
-		<< "S : " << player.S << std::endl
-        << std::endl;
+              << "H : " << player.HP << std::endl
+		      << "A : " << player.A << std::endl
+		      << "B : " << player.B << std::endl
+		      << "C : " << player.C << std::endl
+		      << "D : " << player.D << std::endl
+		      << "S : " << player.S << std::endl
+              << std::endl;
 }   
 
 int main()
@@ -74,9 +84,9 @@ int main()
     std::shared_ptr<Player> p(std::make_shared<Player>());
     std::shared_ptr<Player> p2 = p;     // コピーコンストラクタ
 
-    Player player1("勇者", 75, 65, 72, 159, 125, 139);
+    Player player1("勇者1", 75, 65, 72, 159, 125, 139);
     Player player2 = player1;
-    Player player3("勇者", hero);
+    Player player3("勇者2", hero);
 
     Show(player1);
     Show(player2);
