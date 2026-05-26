@@ -4,6 +4,7 @@
 // プレイヤーの初期設定をまとめた構造体
 struct PlayerSettings
 {
+    std::string NAME;
     int HP;
     int A;
     int B;
@@ -19,7 +20,7 @@ class Player
 {
 public:
 
-	std::string NAME;   // プレイヤーの名前
+//	std::string NAME;   // プレイヤーの名前
     PlayerSettings Settings;
 /*
 	int HP;             // プレイヤーのHP
@@ -37,12 +38,12 @@ public:
 */
 
     Player(const Player& other)
-        : Player(other.NAME, other.Settings)
+        : Player(other.Settings)
     {
     }
 
-    Player(std::string name, const PlayerSettings& settings)
-        : NAME(name), Settings(settings)
+    Player(const PlayerSettings& settings)
+        : Settings(settings)
     {
     }
 
@@ -75,7 +76,7 @@ public:
 void Show(const Player& player, std::string name)
 {
     std::cout << name << std::endl
-              << "NAME : " << player.NAME << std::endl
+              << "NAME : " << player.Settings.NAME << std::endl
               << "H : " << player.Settings.HP << std::endl
 		      << "A : " << player.Settings.A << std::endl
 		      << "B : " << player.Settings.B << std::endl
@@ -86,7 +87,9 @@ void Show(const Player& player, std::string name)
 }
 
 // プレイヤーの初期設定
-PlayerSettings hero = {
+PlayerSettings hero = 
+{
+	"勇者",  // NAME
     108,    // HP
     130,    // A
     95,     // B
@@ -97,6 +100,7 @@ PlayerSettings hero = {
 
 PlayerSettings magician
 {
+	"魔法使い",  // NAME
     75,     // HP
     65,     // A
     72,     // B
@@ -123,9 +127,9 @@ int main()
 	Show(*p2, "p2");
 */
 
-    Player player1("勇者", hero);
+    Player player1(hero);
     Player player2 = player1;
-    Player player3("魔法使い", magician);
+    Player player3(magician);
 
     Show(player1, "player1");
     Show(player2, "player2");
