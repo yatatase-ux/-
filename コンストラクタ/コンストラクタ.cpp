@@ -18,19 +18,22 @@ struct PlayerSettings
 /// </summary>
 class Player
 {
+protected:
+
+    //	std::string NAME;   // プレイヤーの名前
+    PlayerSettings Settings;
+    /*
+        int HP;             // プレイヤーのHP
+        int A;              // プレイヤーの攻撃力
+        int B;              // プレイヤーの防御力
+        int C;              // プレイヤーの魔法攻撃力
+        int D;              // プレイヤーの魔法防御力
+        int S;              // プレイヤーの素早さ
+
+    */
 public:
 
-//	std::string NAME;   // プレイヤーの名前
-    PlayerSettings Settings;
-/*
-	int HP;             // プレイヤーのHP
-	int A;              // プレイヤーの攻撃力
-	int B;              // プレイヤーの防御力
-	int C;              // プレイヤーの魔法攻撃力
-    int D;              // プレイヤーの魔法防御力
-    int S;              // プレイヤーの素早さ        
 
-*/
     // デフォルトコンストラクタ
     Player()
         : Player(PlayerSettings())
@@ -47,6 +50,11 @@ public:
     Player(const PlayerSettings& settings)
         : Settings(settings)
     {
+    }
+
+    PlayerSettings GetSettings() const
+    {
+        return Settings;
     }
 
 /*
@@ -78,14 +86,14 @@ public:
 void Show(const Player& player, std::string name)
 {
     std::cout << name << std::endl
-              << "NAME : " << player.Settings.NAME << std::endl
-              << "H : " << player.Settings.HP << std::endl
-		      << "A : " << player.Settings.A << std::endl
-		      << "B : " << player.Settings.B << std::endl
-		      << "C : " << player.Settings.C << std::endl
-		      << "D : " << player.Settings.D << std::endl
-		      << "S : " << player.Settings.S << std::endl
-              << std::endl;
+              << "NAME : " << player.GetSettings().NAME << std::endl
+              << "H : "    << player.GetSettings().HP   << std::endl
+              << "A : "    << player.GetSettings().A    << std::endl
+              << "B : "    << player.GetSettings().B    << std::endl
+              << "C : "    << player.GetSettings().C    << std::endl
+              << "D : "    << player.GetSettings().D    << std::endl
+              << "S : "    << player.GetSettings().S    << std::endl
+                                                        << std::endl;
 }
 
 // プレイヤーの初期設定
