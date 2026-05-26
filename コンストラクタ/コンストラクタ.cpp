@@ -37,11 +37,13 @@ public:
     {
     }
 
+	// コピーコンストラクタ
     Player(const Player& other)
         : Player(other.Settings)
     {
     }
 
+	// 構造体を引数に取るコンストラクタ
     Player(const PlayerSettings& settings)
         : Settings(settings)
     {
@@ -130,7 +132,7 @@ int main()
     Player player1(hero);       // 勇者
     Player player2 = player1;   // 勇者のコピー
 	Player player3(magician);   // 魔法使い
-    Player player4;
+	Player player4;             // デフォルトコンストラクタで初期化
 
     Show(player1, "player1");
     Show(player2, "player2");
