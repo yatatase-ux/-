@@ -123,9 +123,11 @@ int main()
 	Show(*p2, "p2");
 */
 
-    Player player1("勇者1", hero);
+    Player player1("勇者", hero);
     Player player2 = player1;
+    Player player3("魔法使い", magician);
 
     Show(player1, "player1");
     Show(player2, "player2");
+    Show(player3, "player3");
 }
