@@ -4,7 +4,7 @@
 // プレイヤーの初期設定をまとめた構造体
 struct PlayerSettings
 {
-    std::string NAME;
+    char NAME[256];
     int HP;
     int A;
     int B;
@@ -89,24 +89,24 @@ void Show(const Player& player, std::string name)
 // プレイヤーの初期設定
 PlayerSettings hero = 
 {
-	"勇者",  // NAME
-    108,    // HP
-    130,    // A
-    95,     // B
-    80,     // C
-    85,     // D
-    102     // S
+	"勇者",   // NAME
+    108,      // HP
+    130,      // A
+    95,       // B
+    80,       // C
+    85,       // D
+    102       // S
 };
 
 PlayerSettings magician
 {
 	"魔法使い",  // NAME
-    75,     // HP
-    65,     // A
-    72,     // B
-    159,    // C
-    125,    // D
-    129     // S
+    75,          // HP
+    65,          // A
+    72,          // B
+    159,         // C
+    125,         // D
+    129          // S
 };
 
 int main()
