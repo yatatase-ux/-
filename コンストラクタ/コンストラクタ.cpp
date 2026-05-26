@@ -15,7 +15,7 @@ public:
 
     // デフォルトコンストラクタ
     Player()
-        : Player("Default")
+        : Player("ＮＯＮＡＭＥ")
     {
     }
 
@@ -24,6 +24,12 @@ public:
         : NAME(name), HP(hp), A(a), B(b), C(c), D(d), S(s) 
     {
     }
+
+    //　コピーコンストラクタ
+    Player(const Player& other)
+        : NAME(other.NAME), HP(other.HP), A(other.A), B(other.B), C(other.C), D(other.D), S(other.S)
+    {
+	}   
 };
 
 void Show(const Player& player)
@@ -42,7 +48,9 @@ int main()
 {
     Player player1;
     Player player2("勇者", 75, 65, 72, 159, 125, 139);
+    Player player3 = player2;
 
-	Show(player1);
+    Show(player1);
     Show(player2);
+    Show(player3);
 }
