@@ -1,6 +1,19 @@
 ﻿#include <iostream>
 
+class Player
+{
+public:
+    int HP;
+    // コンストラクタ
+    Player(int hp) : HP(hp)
+    {
+
+    }
+};
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    Player player(50);
+
+    std::cout << "HP : " << player.HP << std::endl;
 }
