@@ -31,17 +31,11 @@ public:
 
 	std::string NAME;   // プレイヤーの名前
 	int HP;             // プレイヤーのHP
-    int A;
-    int B;
-    int C;
-    int D;
-    int S;
-
-	// 構造体を引数に取るコンストラクタ 
-    Player(std::string name,  const PlayerSettings& settings)
-		: Player(name, settings.HP, settings.A, settings.B, settings.C, settings.D, settings.S)
-    {
-	}
+	int A;              // プレイヤーの攻撃力
+	int B;              // プレイヤーの防御力
+	int C;              // プレイヤーの魔法攻撃力
+    int D;              // プレイヤーの魔法防御力
+    int S;              // プレイヤーの素早さ        
 
     // デフォルトコンストラクタ
     Player()
@@ -59,7 +53,13 @@ public:
     Player(const Player& other)
         : NAME(other.NAME), HP(other.HP), A(other.A), B(other.B), C(other.C), D(other.D), S(other.S)
     {
-	}   
+	}
+
+    // 構造体を引数に取るコンストラクタ 
+    Player(std::string name, const PlayerSettings& settings)
+        : Player(name, settings.HP, settings.A, settings.B, settings.C, settings.D, settings.S)
+    {
+    }
 };
 
 /// <summary>
