@@ -22,6 +22,16 @@ PlayerSettings hero = {
 	102     // S
 };
 
+PlayerSettings magician
+{
+    75,     // HP
+    65,     // A
+    72,     // B
+    159,    // C
+    125,    // D
+    129     // S
+};
+
 /// <summary>
 /// プレイヤークラス
 /// </summary>
@@ -30,6 +40,8 @@ class Player
 public:
 
 	std::string NAME;   // プレイヤーの名前
+    PlayerSettings Settings;
+/*
 	int HP;             // プレイヤーのHP
 	int A;              // プレイヤーの攻撃力
 	int B;              // プレイヤーの防御力
@@ -39,10 +51,22 @@ public:
 
     // デフォルトコンストラクタ
     Player()
-        : Player("ＮＯＮＡＭＥ")
+        : Player("ＮＯＮＡＭＥ", PlayerSettings())
+    {
+    }
+*/
+
+    Player(const Player& other)
+        : Player(other.NAME, other.Settings)
     {
     }
 
+    Player(std::string name, const PlayerSettings& settings)
+        : NAME(name), Settings(settings)
+    {
+    }
+
+/*
     // コンストラクタ
     Player(std::string name, int hp = 108, int a = 130, int b = 95, int c = 80, int d = 85, int s = 102)
         : NAME(name), HP(hp), A(a), B(b), C(c), D(d), S(s) 
@@ -60,6 +84,8 @@ public:
         : Player(name, settings.HP, settings.A, settings.B, settings.C, settings.D, settings.S)
     {
     }
+*/
+
 };
 
 /// <summary>
@@ -70,17 +96,18 @@ void Show(const Player& player, std::string name)
 {
     std::cout << name << std::endl
               << "NAME : " << player.NAME << std::endl
-              << "H : " << player.HP << std::endl
-		      << "A : " << player.A << std::endl
-		      << "B : " << player.B << std::endl
-		      << "C : " << player.C << std::endl
-		      << "D : " << player.D << std::endl
-		      << "S : " << player.S << std::endl
+              << "H : " << player.Settings.HP << std::endl
+		      << "A : " << player.Settings.A << std::endl
+		      << "B : " << player.Settings.B << std::endl
+		      << "C : " << player.Settings.C << std::endl
+		      << "D : " << player.Settings.D << std::endl
+		      << "S : " << player.Settings.S << std::endl
               << std::endl;
 }   
 
 int main()
 {
+/*
     // スマートポインタを使用して、下と同じ処理
     std::shared_ptr<Player> p(std::make_shared<Player>());
     std::shared_ptr<Player> p2 = p;     // コピーコンストラクタ
@@ -94,4 +121,11 @@ int main()
     Show(player3, "player3");
 	Show(*p, "p");
 	Show(*p2, "p2");
+*/
+
+    Player player1("勇者1", hero);
+    Player player2 = player1;
+
+    Show(player1, "player1");
+    Show(player2, "player2");
 }
